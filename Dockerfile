@@ -70,7 +70,7 @@ RUN cp /tmp/php/php.ini-production /usr/local/lib/php.ini \
   && sed -i 's|expose_php = On|expose_php = Off|' /usr/local/lib/php.ini \
   && sed -i 's|NONE|/usr/local|' /usr/local/etc/php-fpm.conf \
   && sed -i 's|nobody|php|' /usr/local/etc/php-fpm.d/www.conf \
-  && sed -i 's|127.0.0.1:9000|0.0.0.0:9000|' /usr/local/etc/php-fpm.d/www.conf \
+  && sed -i 's|127.0.0.1|0.0.0.0|' /usr/local/etc/php-fpm.d/www.conf \
   && touch /usr/local/var/log/php-fpm.log
 
 # Clean up
