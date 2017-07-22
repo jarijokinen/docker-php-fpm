@@ -32,6 +32,7 @@ RUN echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01recommends \
     libssl-dev \
     make \
     pkg-config \
+    postfix \
     wget \
     zlib1g \
     zlib1g-dev \
@@ -71,6 +72,7 @@ RUN cp /tmp/php/php.ini-production /usr/local/lib/php.ini \
   && sed -i 's|NONE|/usr/local|' /usr/local/etc/php-fpm.conf \
   && sed -i 's|nobody|php|' /usr/local/etc/php-fpm.d/www.conf \
   && sed -i 's|127.0.0.1|0.0.0.0|' /usr/local/etc/php-fpm.d/www.conf \
+  && sed -i 's|;php_admin_value[sendmail|php_admin_value[sendmail|' /usr/local/etc/php-fpm.d/www.conf \
   && touch /usr/local/var/log/php-fpm.log
 
 # Clean up
